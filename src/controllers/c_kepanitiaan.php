@@ -12,6 +12,54 @@ class c_kepanitiaan {
   function index(){
     include_once('./views/admin/index.php');
   }
+    private class btnMakanan implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            c_makanan a = new c_makanan(new v_MENUPAKAN());
+            view.dispose();
+        }
+    }
+
+    private class btnKandang implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            try {
+                c_kandang a = new c_kandang(new v_KANDANG(), new m_kandang());
+                view.dispose();
+            } catch (SQLException ex) {
+                Logger.getLogger(c_admin.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+    }
+
+    private class btnValidasi implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            try {
+                c_validasi a = new c_validasi(new v_VALIDASI(), new m_validasi());
+                view.dispose();
+            } catch (SQLException ex) {
+                Logger.getLogger(c_admin.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+
+    private class btnLogout implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            try {
+                c_user a = new c_user(new v_LOGIN(), new m_user());
+                view.dispose();
+            } catch (SQLException ex) {
+                Logger.getLogger(c_admin.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
 
   function indexAwal(){
     include_once('./views/index.php');
